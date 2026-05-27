@@ -544,7 +544,7 @@ section {
     overflow: hidden;
 }
 
-body.dark-mode .story-hero 
+body.dark-mode .story-hero {
     /* Dark mode hero background - night time effect only */
 body.dark-mode .hero {
     background: linear-gradient(135deg, 
