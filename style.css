@@ -1543,3 +1543,53 @@ body.dark-mode .elyu-highlight {
 .gallery-card:active {
     opacity: 0.9;
 }
+
+/* ============================================================
+   MOBILE TOUCH IMPROVEMENTS
+   ============================================================ */
+
+/* Make all clickable elements more responsive on touch devices */
+.touch-device .slides li,
+.touch-device .gallery-card,
+.touch-device .info-trigger,
+.touch-device .explore-btn,
+.touch-device .sidebar nav a {
+    cursor: pointer;
+    touch-action: manipulation;
+}
+
+/* Make info button always visible on mobile (not just hover) */
+@media (max-width: 900px) {
+    .info-trigger {
+        opacity: 1 !important;
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+        background: var(--sunset-orange);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    
+    /* Remove hover effects that don't work well on touch */
+    .slides li:hover {
+        flex: 1;
+    }
+    
+    /* Ensure modal triggers have enough tap area */
+    .gallery-card {
+        min-height: 180px;
+    }
+    
+    /* Prevent zoom on double-tap for buttons */
+    button,
+    a,
+    [onclick] {
+        touch-action: manipulation;
+    }
+}
+
+/* Highlight tapped elements briefly for feedback */
+.slides li:active,
+.gallery-card:active {
+    opacity: 0.8;
+    transition: opacity 0.05s ease;
+}
