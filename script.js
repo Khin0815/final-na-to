@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 San Juan, La Union',
                 mapUrl: 'https://www.google.com/maps/search/San+Juan+Beach+La+Union+Philippines',
                 images: [
-                    "La Union 2024.jpg",
+                    "La-Union-2024.jpg",
                     "surf1.jpg",
                     "surf2.jpg"
                 ],
@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 Bauang, La Union',
                 mapUrl: 'https://www.google.com/maps/search/Bauang+Beach+La+Union+Philippines',
                 images: [
-                    "download (5).jpg",
-                    "download (4).jpg",
+                    "download-(5).jpg",
+                    "download-(4).jpg",
                     "calm.jpg"
                 ],
                 desc: 'Bauang offers calm, family-friendly waters perfect for swimming and relaxed beach days. Lined with resorts and beach clubs, it\'s ideal for day trips or weekend staycations from Manila. The sunset here is absolutely breathtaking.',
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 Luna, La Union',
                 mapUrl: 'https://www.google.com/maps/search/Darigayos+Cove+Luna+La+Union+Philippines',
                 images: [
-                    "Pebble Beach Elyu.jpg",
+                    "Pebble-Beach-Elyu.jpg",
                     'stone.jpg',
                     'stones.jpg'
                 ],
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 Santo Tomas, La Union',
                 mapUrl: 'https://www.google.com/maps/search/Pebble+Beach+Santo+Tomas+La+Union+Philippines',
                 images: [
-                    "download (2).jpg",
+                    "download-(2).jpg",
                     'gg.jpg',
                     'ggs.jpg'
                 ],
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 title: 'Pindang',
                 category: 'Local Cuisine',
                 location: '📍 San Fernando City, La Union',
-                image: 'pindand f.jpg',
+                image: 'pindand-f.jpg',
                 desc: 'Pindang is salted and dried fish — a staple of the Ilocano breakfast table. Pan-fried to golden crispness and paired with garlic rice and tomatoes, it\'s the ultimate comfort food that locals and tourists crave.',
                 facts: ['Classic Ilocano breakfast', 'Various fish varieties', 'Best with garlic sinangag', 'Sold in tiangge markets', 'Sun-dried traditional method'],
                 rating: 4,
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 title: 'Basi Wine',
                 category: 'Traditional Drink',
                 location: '📍 San Fernando City, La Union',
-                image: 'base wine.jpg',
+                image: 'base-wine.jpg',
                 desc: 'Basi is an ancient fermented sugarcane wine that dates back to pre-colonial times. It has a unique sweet-sour taste with earthy undertones. The famous Basi Revolt of 1807 was sparked when Spanish colonizers monopolized its production — a testament to how deeply this drink runs in Ilocano culture.',
                 facts: ['Pre-colonial origin', 'Sugarcane fermented', 'Symbol of Ilocano identity', 'Sparked the Basi Revolt', 'Available in souvenir shops'],
                 rating: 5,
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', function () {
         stays: [
             {
                 title: 'The Circle Hostel',
-                category: 'Surf Hostel',
+                category: 'Surf-Hostel',
                 location: '📍 San Juan, La Union',
                 scheduleUrl: 'scheduling.html',
                 reviewUrl: 'reviews.html',
@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 category: 'Specialty Cafe',
                 location: '📍 San Juan, La Union',
                 mapUrl: 'https://www.google.com/maps/search/El+Union+Coffee+San+Juan+La+Union+Philippines',
-                image: 'El Union Coffee.jpg',
+                image: 'El-Union-Coffee.jpg',
                 desc: 'El Union is arguably the cafe that put La Union on the specialty coffee map. Famous for its dirty horchata — a blend of cold brew and rice milk — and its cool, artsy atmosphere, it draws coffee pilgrims from Manila and beyond. The vibe is bohemian surf-meets-third-wave coffee.',
                 facts: ['Famous dirty horchata', 'Single-origin pour overs', 'Surf culture aesthetic', 'Alfresco & indoor seating', 'Coffee & merch shop'],
                 rating: 5
@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 category: 'All-Day Cafe',
                 location: '📍 San Juan, La Union',
                 mapUrl: 'https://www.google.com/maps/search/Surftown+Cafe+San+Juan+La+Union+Philippines',
-                image: 'surf cafe.jpg',
+                image: 'surf-cafe.jpg',
                 desc: 'Surftown Cafe is the surfer\'s morning ritual spot. Open from early dawn, it serves hearty breakfast burritos, cold brew, and fresh açai bowls to fuel your session in the water. It\'s casual, energetic, and totally unpretentious.',
                 facts: ['Open from 6AM', 'Post-surf breakfast spot', 'Açai bowls & burritos', 'Cold brew on tap', 'Surf community hangout'],
                 rating: 4
