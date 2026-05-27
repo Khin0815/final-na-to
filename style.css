@@ -544,18 +544,52 @@ section {
     overflow: hidden;
 }
 
-body.dark-mode .story-hero {
-    /* Dark mode hero background - night time effect only */
+/* Dark mode: hero section — night-time background */
 body.dark-mode .hero {
-    background: linear-gradient(135deg, 
-                rgba(10, 10, 30, 0.85), 
-                rgba(30, 20, 50, 0.8),
-                rgba(0, 0, 0, 0.7)),
-                url('LAUNION.jpg');
+    background:
+        linear-gradient(
+            135deg,
+            rgba(10, 10, 30, 0.85),
+            rgba(30, 20, 50, 0.8),
+            rgba(0, 0, 0, 0.7)
+        ),
+        url('LAUNION.jpg');
     background-size: cover;
     background-position: center 30%;
     background-repeat: no-repeat;
 }
+
+body.dark-mode .hero::before {
+    display: none;
+}
+
+/* Dark mode: hero text glow */
+body.dark-mode .hero h1 {
+    color: #FFFFFF;
+    text-shadow:
+        0 0 10px rgba(255, 107, 53, 0.8),
+        0 0 20px rgba(255, 107, 53, 0.6),
+        2px 4px 15px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .hero p {
+    color: #FFE8C5;
+    text-shadow:
+        0 0 8px rgba(255, 107, 53, 0.5),
+        0 0 12px rgba(255, 179, 71, 0.3);
+}
+
+body.dark-mode .explore-btn {
+    background: linear-gradient(135deg, #FF6B35, #FF9F1C);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+}
+
+body.dark-mode .explore-btn:hover {
+    background: linear-gradient(135deg, #FF9F1C, #FF6B35);
+    box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
+    transform: translateY(-3px);
+}
+
 
 .story-hero::before { content: '🏄‍♂️'; position: absolute; font-size: 8rem; opacity: 0.08; bottom: -20px; right: -20px; pointer-events: none; }
 .story-hero::after  { content: '🌊'; position: absolute; font-size: 6rem; opacity: 0.08; top: -20px; left: -20px; pointer-events: none; }
