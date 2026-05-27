@@ -1497,3 +1497,15 @@ body.dark-mode .elyu-highlight {
     .modal-actions .btn-ocean { width: 100%; text-align: center; justify-content: center; }
     .footer-tag { padding: 2rem 1.2rem; border-radius: 20px; flex-direction: column; gap: 1.5rem; text-align: center; }
 }
+/* Fix for mobile touch clicks */
+.slides li,
+.gallery-card,
+.info-trigger {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.slides li:active,
+.gallery-card:active {
+    opacity: 0.9;
+}
