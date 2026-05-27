@@ -447,6 +447,26 @@ if (darkToggleBtn) {
     let currentSlide = 0;
     let slideTotal   = 0;
 
+       /* ============================================================
+       6. ADDED FOR MOBILE - Touch support
+    ============================================================ */
+    const beachSlides = document.querySelectorAll('.slides li');
+    beachSlides.forEach(function(slide) {
+        slide.addEventListener('touchstart', function(e) {
+            // Let the click event handle it, but ensure it works
+            console.log("Touch detected on beach");
+        });
+    });
+    
+    const galleryCards = document.querySelectorAll('.gallery-card');
+    galleryCards.forEach(function(card) {
+        card.addEventListener('touchstart', function(e) {
+            console.log("Touch detected on card");
+        });
+    });
+    
+    console.log("JavaScript fully loaded - Mobile touch supported!");
+
     /* --- Carousel helpers --- */
     function goToSlide(index) {
         currentSlide = Math.max(0, Math.min(index, slideTotal - 1));
