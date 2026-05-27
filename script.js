@@ -1,7 +1,6 @@
 /* ============================================================
    ELYU - La Union Tourism Website
-   JavaScript v2: Hamburger Sidebar, Beach Carousel, Food
-   Restaurants, Staycation Schedule+Review, Cafe Maps, Footer
+   JavaScript v3: Mobile Touch Fixes + Modal Triggers Working
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -192,7 +191,7 @@ document.addEventListener('DOMContentLoaded', function () {
         stays: [
             {
                 title: 'The Circle Hostel',
-                category: 'Surf-Hostel',
+                category: 'Surf Hostel',
                 location: '📍 San Juan, La Union',
                 scheduleUrl: 'scheduling.html',
                 reviewUrl: 'reviews.html',
@@ -282,7 +281,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     /* ============================================================
-       1. HAMBURGER / MOBILE SIDEBAR
+       1. HAMBURGER / MOBILE SIDEBAR (FIXED)
     ============================================================ */
     const hamburgerBtn  = $('hamburgerBtn');
     const sidebarEl     = $('sidebar');
@@ -291,30 +290,44 @@ document.addEventListener('DOMContentLoaded', function () {
     function openMobileSidebar() {
         sidebarEl.classList.add('mobile-open');
         overlayEl.classList.add('active');
-        hamburgerBtn.classList.add('open');
-        hamburgerBtn.setAttribute('aria-expanded', 'true');
+        if (hamburgerBtn) hamburgerBtn.classList.add('open');
+        if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
     }
 
     function closeMobileSidebar() {
         sidebarEl.classList.remove('mobile-open');
         overlayEl.classList.remove('active');
-        hamburgerBtn.classList.remove('open');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
+        if (hamburgerBtn) hamburgerBtn.classList.remove('open');
+        if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
     }
 
-    hamburgerBtn.addEventListener('click', function () {
-        sidebarEl.classList.contains('mobile-open') ? closeMobileSidebar() : openMobileSidebar();
-    });
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            sidebarEl.classList.contains('mobile-open') ? closeMobileSidebar() : openMobileSidebar();
+        });
+    }
 
-    overlayEl.addEventListener('click', closeMobileSidebar);
+    if (overlayEl) {
+        overlayEl.addEventListener('click', closeMobileSidebar);
+    }
 
-    // Close sidebar when a nav link is clicked on mobile
+    // Close sidebar when nav link is clicked on mobile
     document.querySelectorAll('.sidebar nav a').forEach(link => {
         link.addEventListener('click', function () {
-            if (window.innerWidth <= 900) closeMobileSidebar();
+            if (window.innerWidth <= 900) {
+                closeMobileSidebar();
+            }
         });
+    });
+
+    // Close sidebar when window is resized above mobile breakpoint
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 900) {
+            closeMobileSidebar();
+        }
     });
 
     /* ============================================================
@@ -330,56 +343,46 @@ document.addEventListener('DOMContentLoaded', function () {
         toggleBtn.addEventListener('click', function () {
             isCollapsed = !isCollapsed;
             sidebarEl.classList.toggle('collapsed', isCollapsed);
-            mainEl.classList.toggle('shifted', isCollapsed);
-            toggleIcon.textContent  = isCollapsed ? '▶' : '◀';
-            toggleLabel.textContent = isCollapsed ? 'Expand' : 'Collapse';
+            if (mainEl) mainEl.classList.toggle('shifted', isCollapsed);
+            if (toggleIcon) toggleIcon.textContent = isCollapsed ? '▶' : '◀';
+            if (toggleLabel) toggleLabel.textContent = isCollapsed ? 'Expand' : 'Collapse';
         });
     }
 
-    
-/* ============================================================
-       3. DARK MODE
+    /* ============================================================
+       3. DARK MODE (with localStorage)
     ============================================================ */
-    // Dark Mode Toggle
-const darkToggleBtn = document.querySelector('.dark-toggle-btn');
+    const darkToggleBtn = document.querySelector('.dark-toggle-btn');
 
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    
-    // Save preference to localStorage
-    const isDarkMode = document.body.classList.contains('dark-mode');
-    localStorage.setItem('darkMode', isDarkMode);
-    
-    // Update button text/icon if needed
-    if (darkToggleBtn) {
-        const iconSpan = darkToggleBtn.querySelector('.nav-icon');
-        const labelSpan = darkToggleBtn.querySelector('.btn-label');
-        if (isDarkMode) {
-            if (iconSpan) iconSpan.textContent = '☀️';
-            if (labelSpan) labelSpan.textContent = 'Light Mode';
-        } else {
-            if (iconSpan) iconSpan.textContent = '🌙';
-            if (labelSpan) labelSpan.textContent = 'Dark Mode';
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode);
+        
+        if (darkToggleBtn) {
+            const iconSpan = darkToggleBtn.querySelector('.nav-icon');
+            const labelSpan = darkToggleBtn.querySelector('.btn-label');
+            if (iconSpan) iconSpan.textContent = isDarkMode ? '☀️' : '🌙';
+            if (labelSpan) labelSpan.textContent = isDarkMode ? 'Light Mode' : 'Dark Mode';
         }
     }
-}
 
-// Load saved preference
-const savedDarkMode = localStorage.getItem('darkMode');
-if (savedDarkMode === 'true') {
-    document.body.classList.add('dark-mode');
-    if (darkToggleBtn) {
-        const iconSpan = darkToggleBtn.querySelector('.nav-icon');
-        const labelSpan = darkToggleBtn.querySelector('.btn-label');
-        if (iconSpan) iconSpan.textContent = '☀️';
-        if (labelSpan) labelSpan.textContent = 'Light Mode';
+    // Load saved preference
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode === 'true') {
+        document.body.classList.add('dark-mode');
+        if (darkToggleBtn) {
+            const iconSpan = darkToggleBtn.querySelector('.nav-icon');
+            const labelSpan = darkToggleBtn.querySelector('.btn-label');
+            if (iconSpan) iconSpan.textContent = '☀️';
+            if (labelSpan) labelSpan.textContent = 'Light Mode';
+        }
     }
-}
 
-// Add click event
-if (darkToggleBtn) {
-    darkToggleBtn.addEventListener('click', toggleDarkMode);
-}
+    if (darkToggleBtn) {
+        darkToggleBtn.addEventListener('click', toggleDarkMode);
+    }
 
     /* ============================================================
        4. SMOOTH NAV & ACTIVE HIGHLIGHT
@@ -392,12 +395,12 @@ if (darkToggleBtn) {
             const href = link.getAttribute('href').substring(1);
             if (href === id) {
                 link.style.background = 'var(--sunset-orange)';
-                link.style.color      = 'white';
-                link.style.transform  = 'translateX(8px)';
+                link.style.color = 'white';
+                link.style.transform = 'translateX(8px)';
             } else {
                 link.style.background = 'rgba(255,255,255,0.06)';
-                link.style.color      = 'var(--ocean-mist)';
-                link.style.transform  = 'translateX(0)';
+                link.style.color = 'var(--ocean-mist)';
+                link.style.transform = 'translateX(0)';
             }
         });
     }
@@ -406,14 +409,14 @@ if (darkToggleBtn) {
         link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href').substring(1);
-            const target   = document.getElementById(targetId);
+            const target = document.getElementById(targetId);
             if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             setActiveLink(targetId);
         });
     });
 
     window.addEventListener('scroll', function () {
-        let current   = '';
+        let current = '';
         const scrollPos = window.scrollY + 200;
         sections.forEach(sec => {
             if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.clientHeight)
@@ -425,7 +428,7 @@ if (darkToggleBtn) {
     setTimeout(() => window.dispatchEvent(new Event('scroll')), 100);
 
     /* ============================================================
-       5. INFO MODAL
+       5. INFO MODAL (with touch support)
     ============================================================ */
     const modal              = $('infoModal');
     const modalCarousel      = $('modalCarousel');
@@ -447,58 +450,47 @@ if (darkToggleBtn) {
     let currentSlide = 0;
     let slideTotal   = 0;
 
-       /* ============================================================
-       6. ADDED FOR MOBILE - Touch support
-    ============================================================ */
-    const beachSlides = document.querySelectorAll('.slides li');
-    beachSlides.forEach(function(slide) {
-        slide.addEventListener('touchstart', function(e) {
-            // Let the click event handle it, but ensure it works
-            console.log("Touch detected on beach");
-        });
-    });
-    
-    const galleryCards = document.querySelectorAll('.gallery-card');
-    galleryCards.forEach(function(card) {
-        card.addEventListener('touchstart', function(e) {
-            console.log("Touch detected on card");
-        });
-    });
-    
-    console.log("JavaScript fully loaded - Mobile touch supported!");
-
     /* --- Carousel helpers --- */
     function goToSlide(index) {
         currentSlide = Math.max(0, Math.min(index, slideTotal - 1));
-        carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
-
+        if (carouselTrack) {
+            carouselTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
         // Update dots
         document.querySelectorAll('.carousel-dot-sm').forEach((dot, i) => {
             dot.classList.toggle('active', i === currentSlide);
         });
     }
 
-    carouselPrev.addEventListener('click', function (e) {
-        e.stopPropagation();
-        goToSlide(currentSlide > 0 ? currentSlide - 1 : slideTotal - 1);
-    });
+    if (carouselPrev) {
+        carouselPrev.addEventListener('click', function (e) {
+            e.stopPropagation();
+            goToSlide(currentSlide > 0 ? currentSlide - 1 : slideTotal - 1);
+        });
+    }
 
-    carouselNext.addEventListener('click', function (e) {
-        e.stopPropagation();
-        goToSlide(currentSlide < slideTotal - 1 ? currentSlide + 1 : 0);
-    });
+    if (carouselNext) {
+        carouselNext.addEventListener('click', function (e) {
+            e.stopPropagation();
+            goToSlide(currentSlide < slideTotal - 1 ? currentSlide + 1 : 0);
+        });
+    }
 
     /* --- Build carousel slides --- */
     function buildCarousel(images) {
-        carouselTrack.innerHTML    = '';
+        if (!carouselTrack || !carouselIndicators) return;
+        
+        carouselTrack.innerHTML = '';
         carouselIndicators.innerHTML = '';
-        slideTotal   = images.length;
+        slideTotal = images.length;
         currentSlide = 0;
 
         images.forEach((src, i) => {
             const slide = document.createElement('div');
             slide.className = 'carousel-slide';
             slide.style.backgroundImage = `url('${src}')`;
+            slide.style.backgroundSize = 'cover';
+            slide.style.backgroundPosition = 'center';
             carouselTrack.appendChild(slide);
 
             const dot = document.createElement('button');
@@ -508,26 +500,29 @@ if (darkToggleBtn) {
             carouselIndicators.appendChild(dot);
         });
 
-        carouselTrack.style.transform = 'translateX(0)';
-
-        modalCarousel.classList.add('active');
-        modalBanner.classList.remove('active');
+        if (carouselTrack) carouselTrack.style.transform = 'translateX(0)';
+        if (modalCarousel) modalCarousel.classList.add('active');
+        if (modalBanner) modalBanner.classList.remove('active');
     }
 
     /* --- Build single banner --- */
     function buildBanner(imgUrl) {
+        if (!modalBanner) return;
+        
         modalBanner.style.backgroundImage = `url('${imgUrl}')`;
-        modalBanner.style.height          = '260px';
-        modalBanner.style.width           = '100%';
-        modalBanner.style.backgroundSize  = 'cover';
+        modalBanner.style.height = '260px';
+        modalBanner.style.width = '100%';
+        modalBanner.style.backgroundSize = 'cover';
         modalBanner.style.backgroundPosition = 'center';
 
         modalBanner.classList.add('active');
-        modalCarousel.classList.remove('active');
+        if (modalCarousel) modalCarousel.classList.remove('active');
     }
 
     /* --- Build restaurant cards (food) --- */
     function buildRestaurants(restaurants) {
+        if (!modalRestaurants) return;
+        
         if (!restaurants || restaurants.length === 0) {
             modalRestaurants.innerHTML = '';
             return;
@@ -549,23 +544,24 @@ if (darkToggleBtn) {
 
     /* --- Build action buttons --- */
     function buildActions(type, data) {
+        if (!modalActions) return;
         modalActions.innerHTML = '';
 
         if (type === 'beaches' && data.mapUrl) {
             const btn = document.createElement('a');
-            btn.href       = data.mapUrl;
-            btn.target     = '_blank';
-            btn.rel        = 'noopener noreferrer';
-            btn.className  = 'btn-ocean';
-            btn.innerHTML  = '🗺️ View Location';
+            btn.href = data.mapUrl;
+            btn.target = '_blank';
+            btn.rel = 'noopener noreferrer';
+            btn.className = 'btn-ocean';
+            btn.innerHTML = '🗺️ View Location';
             modalActions.appendChild(btn);
         }
 
         if (type === 'cafes' && data.mapUrl) {
             const btn = document.createElement('a');
-            btn.href      = data.mapUrl;
-            btn.target    = '_blank';
-            btn.rel       = 'noopener noreferrer';
+            btn.href = data.mapUrl;
+            btn.target = '_blank';
+            btn.rel = 'noopener noreferrer';
             btn.className = 'btn-ocean';
             btn.innerHTML = '🗺️ View Location';
             modalActions.appendChild(btn);
@@ -574,8 +570,8 @@ if (darkToggleBtn) {
         if (type === 'stays') {
             if (data.scheduleUrl) {
                 const schedBtn = document.createElement('button');
-                schedBtn.className  = 'btn-small';
-                schedBtn.innerHTML  = '📅 Schedule Now';
+                schedBtn.className = 'btn-small';
+                schedBtn.innerHTML = '📅 Schedule Now';
                 schedBtn.addEventListener('click', function () {
                     window.open(data.scheduleUrl, '_blank');
                 });
@@ -584,8 +580,8 @@ if (darkToggleBtn) {
 
             if (data.reviewUrl) {
                 const revBtn = document.createElement('button');
-                revBtn.className  = 'btn-ocean';
-                revBtn.innerHTML  = '⭐ Review';
+                revBtn.className = 'btn-ocean';
+                revBtn.innerHTML = '⭐ Review';
                 revBtn.addEventListener('click', function () {
                     window.open(data.reviewUrl, '_blank');
                 });
@@ -602,57 +598,119 @@ if (darkToggleBtn) {
         // Image area
         if (type === 'beaches' && data.images && data.images.length > 0) {
             buildCarousel(data.images);
-        } else {
+        } else if (data.image) {
             buildBanner(data.image);
         }
 
         // Text content
-        modalCategory.textContent = data.category;
-        modalTitle.textContent    = data.title;
-        modalLocation.textContent = data.location;
-        modalDesc.textContent     = data.desc;
+        if (modalCategory) modalCategory.textContent = data.category;
+        if (modalTitle) modalTitle.textContent = data.title;
+        if (modalLocation) modalLocation.textContent = data.location;
+        if (modalDesc) modalDesc.textContent = data.desc;
 
         // Restaurants (food only)
         buildRestaurants(data.restaurants || null);
 
         // Facts
-        modalFacts.innerHTML = (data.facts || [])
-            .map(f => `<span class="fact-tag">${f}</span>`)
-            .join('');
+        if (modalFacts) {
+            modalFacts.innerHTML = (data.facts || [])
+                .map(f => `<span class="fact-tag">${f}</span>`)
+                .join('');
+        }
 
         // Stars
         const stars = '★'.repeat(data.rating) + '☆'.repeat(5 - data.rating);
-        modalRating.innerHTML = `<span class="stars">${stars}</span> ${data.rating}.0 / 5.0 &nbsp;·&nbsp; Highly Recommended`;
+        if (modalRating) {
+            modalRating.innerHTML = `<span class="stars">${stars}</span> ${data.rating}.0 / 5.0 &nbsp;·&nbsp; Highly Recommended`;
+        }
 
         // Action buttons
         buildActions(type, data);
 
         // Show modal
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
     }
 
     /* --- Close modal --- */
     function closeModal() {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     }
 
-    modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+    }
+    
+    if (modal) {
+        modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    }
+    
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-    /* --- Wire up beach slides --- */
-    document.querySelectorAll('.slides li').forEach(li => {
-        li.addEventListener('click', function () {
-            openModal(this.dataset.info, parseInt(this.dataset.index));
-        });
+    /* ============================================================
+       6. WIRE UP MODAL TRIGGERS (FIXED FOR MOBILE TOUCH)
+    ============================================================ */
+    
+    // Helper function to safely add both click and touch events
+    function addModalTrigger(element, type, index) {
+        if (!element) return;
+        
+        const handler = function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            openModal(type, parseInt(index));
+        };
+        
+        // Add both event types for maximum mobile compatibility
+        element.addEventListener('click', handler);
+        element.addEventListener('touchstart', handler, { passive: false });
+    }
+    
+    // Wire up beach slides
+    const beachSlides = document.querySelectorAll('.slides li');
+    beachSlides.forEach(slide => {
+        const type = slide.dataset.info;
+        const idx = slide.dataset.index;
+        if (type && idx !== undefined) {
+            addModalTrigger(slide, type, idx);
+        }
+    });
+    
+    // Wire up gallery cards (food, stays, cafes)
+    const galleryCards = document.querySelectorAll('.gallery-card');
+    galleryCards.forEach(card => {
+        const type = card.dataset.info;
+        const idx = card.dataset.index;
+        if (type && idx !== undefined) {
+            addModalTrigger(card, type, idx);
+        }
+    });
+    
+    // Also wire up info-trigger buttons (the ℹ button on beach slides)
+    const infoTriggers = document.querySelectorAll('.info-trigger');
+    infoTriggers.forEach(trigger => {
+        const parentLi = trigger.closest('li');
+        if (parentLi) {
+            const type = parentLi.dataset.info;
+            const idx = parentLi.dataset.index;
+            if (type && idx !== undefined) {
+                addModalTrigger(trigger, type, idx);
+            }
+        }
     });
 
-    /* --- Wire up gallery cards --- */
-    document.querySelectorAll('.gallery-card').forEach(card => {
-        card.addEventListener('click', function () {
-            openModal(this.dataset.info, parseInt(this.dataset.index));
-        });
-    });
-}); // end DOMContentLoaded
+    /* ============================================================
+       7. ADD TOUCH-FRIENDLY CSS CLASS TO BODY
+    ============================================================ */
+    // Detect if device is touch-capable
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        document.body.classList.add('touch-device');
+    }
+    
+    console.log('✅ LAUNION.js loaded - Mobile touch events enabled');
+});
