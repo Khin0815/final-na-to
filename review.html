@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Reviews | ELYU La Union</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sunset-orange: #FF6B35;
+            --sunset-coral: #F4A261;
+            --sunset-gold: #E9C46A;
+            --ocean-deep: #0B3B4F;
+            --ocean-wave: #1A6B7A;
+            --ocean-mist: #C4E4EA;
+            --sand-light: #FDF8F0;
+            --sand-warm: #F5E6CC;
+            --terracotta-dk: #9B451D;
+            --text-dark: #1E2A2E;
+            --text-light: #5A6B6F;
+            --bg-body: linear-gradient(135deg, #FDF8F0 0%, #F5E6CC 100%);
+            --sidebar-gradient: linear-gradient(160deg, #0B3B4F 0%, #1A6B7A 100%);
+            --sunset-gradient: linear-gradient(145deg, #FF6B35, #F4A261, #E9C46A);
+            --ocean-gradient: linear-gradient(145deg, #0B3B4F, #1A6B7A, #4AA3B0);
+            --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.08);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 20px 40px -12px rgba(0, 0, 0, 0.2);
+            --radius: 28px;
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-body);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        /* ---- HEADER ---- */
+        .page-header {
+            background: var(--sidebar-gradient);
+            padding: 2.5rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '⭐';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.06;
+            right: -2rem;
+            bottom: -2rem;
+            pointer-events: none;
+        }
+
+        .header-back {
+            position: absolute;
+            top: 1.4rem;
+            left: 1.6rem;
+            background: rgba(255, 255, 255, 0.12);
+            border: none;
+            color: var(--ocean-mist);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header-back:hover {
+            background: var(--sunset-orange);
+            color: white;
+        }
+
+        .page-header .logo {
+            font-family: var(--font-head);
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            background: var(--sunset-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.4rem;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-head);
+            font-size: clamp(1.6rem, 5vw, 2.8rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--ocean-mist);
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* ---- CONTAINER ---- */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        /* ---- STATS BANNER ---- */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.4rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-num {
+            font-family: var(--font-head);
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--sunset-orange);
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        /* ---- EXISTING REVIEWS ---- */
+        .section-label {
+            font-family: var(--font-head);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sunset-orange);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--sand-warm);
+        }
+
+        .reviews-grid {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .review-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.4rem 1.6rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 0.8rem;
+        }
+
+        .review-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--ocean-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .review-meta {
+            flex: 1;
+        }
+
+        .review-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .review-stay {
+            font-size: 0.74rem;
+            color: var(--text-light);
+        }
+
+        .review-date {
+            font-size: 0.72rem;
+            color: var(--text-light);
+            margin-left: auto;
+        }
+
+        .review-stars {
+            color: var(--sunset-gold);
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-text {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.65;
+        }
+
+        .review-tag {
+            display: inline-block;
+            background: var(--sand-warm);
+            color: var(--text-light);
+            padding: 3px 10px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 0.6rem;
+        }
+
+        /* ---- WRITE REVIEW FORM ---- */
+        .form-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2.2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.83rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 11px 15px;
+            border: 2px solid var(--sand-warm);
+            border-radius: 14px;
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            background: var(--sand-light);
+            outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--sunset-orange);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.12);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Star Rating Picker */
+        .star-picker {
+            display: flex;
+            gap: 6px;
+            flex-direction: row-reverse;
+            justify-content: flex-end;
+        }
+
+        .star-picker input {
+            display: none;
+        }
+
+        .star-picker label {
+            font-size: 2rem;
+            color: var(--sand-warm);
+            cursor: pointer;
+            transition: color 0.15s ease, transform 0.15s ease;
+        }
+
+        .star-picker label:hover,
+        .star-picker label:hover~label,
+        .star-picker input:checked~label {
+            color: var(--sunset-gold);
+        }
+
+        .star-picker label:hover {
+            transform: scale(1.2);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--sunset-orange);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-head);
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+            margin-top: 0.8rem;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: var(--terracotta-dk);
+            transform: translateY(-2px);
+        }
+
+        /* Success toast */
+        .toast {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--ocean-deep);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            z-index: 9999;
+            box-shadow: var(--shadow-lg);
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .toast.show {
+            display: block;
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width: 600px) {
+            .stats-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats-row .stat-card:last-child {
+                grid-column: span 2;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-card {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .page-header {
+                padding: 3.5rem 1.2rem 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-header">
+        <a href="ELYU-PROJECT2.html" class="header-back">← Back to ELYU</a>
+        <div class="logo">ELYU</div>
+        <h1>⭐ Guest Reviews</h1>
+        <p>Read what fellow travelers say — and share your own experience.</p>
+    </div>
+
+    <div class="container">
+
+        <!-- STATS -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-num">4.8</div>
+                <div class="stat-label">Average Rating</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="totalReviews">12</div>
+                <div class="stat-label">Total Reviews</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num">98%</div>
+                <div class="stat-label">Recommend Rate</div>
+            </div>
+        </div>
+
+        <!-- EXISTING REVIEWS -->
+        <div class="section-label">💬 What Guests Are Saying</div>
+
+        <div class="reviews-grid" id="reviewsGrid">
+            <!-- Sample seeded reviews -->
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">🌊</div>
+                    <div class="review-meta">
+                        <div class="review-name">Carla Reyes</div>
+                        <div class="review-stay">Aureo Resort · June 2024</div>
+                    </div>
+                    <div class="review-date">June 14, 2024</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Absolutely magical experience! The infinity pool at sunset was something out of
+                    a dream. Staff were incredibly attentive and the beachside breakfast was the highlight of our trip.
+                    Will definitely be back for our anniversary.</div>
+                <span class="review-tag">Couples</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">🏄</div>
+                    <div class="review-meta">
+                        <div class="review-name">Miguel Santos</div>
+                        <div class="review-stay">The Circle Hostel · May 2024</div>
+                    </div>
+                    <div class="review-date">May 28, 2024</div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">Best hostel vibes in the Philippines, hands down. The rooftop socials, the surf
+                    lessons at dawn, the community of travelers — it's the kind of place that makes you extend your stay
+                    by a week without even thinking about it.</div>
+                <span class="review-tag">Solo Traveler</span>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">☀️</div>
+                    <div class="review-meta">
+                        <div class="review-name">Patricia Lim</div>
+                        <div class="review-stay">Thunderbird Resort · April 2024</div>
+                    </div>
+                    <div class="review-date">Apr 9, 2024</div>
+                </div>
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-text">Great resort overall. The golf course views are stunning and the dining options
+                    were excellent. Room could use a little upgrade but the ocean view made up for it. Perfect for a
+                    corporate retreat or a family celebration.</div>
+                <span class="review-tag">Family</span>
+            </div>
+        </div>
+
+        <!-- WRITE A REVIEW -->
+        <div class="section-label">✍️ Write Your Review</div>
+
+        <div class="form-card">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="rvName">Full Name *</label>
+                    <input type="text" id="rvName" placeholder="Your name">
+                </div>
+                <div class="form-group">
+                    <label for="rvStay">Staycation *</label>
+                    <select id="rvStay">
+                        <option value="" disabled selected>Select a place</option>
+                        <option>The Circle Hostel</option>
+                        <option>Aureo Resort</option>
+                        <option>San Juan Surf Resort</option>
+                        <option>Thunderbird Resort</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Your Rating *</label>
+                <div class="star-picker">
+                    <input type="radio" id="s5" name="rating" value="5"><label for="s5">★</label>
+                    <input type="radio" id="s4" name="rating" value="4"><label for="s4">★</label>
+                    <input type="radio" id="s3" name="rating" value="3"><label for="s3">★</label>
+                    <input type="radio" id="s2" name="rating" value="2"><label for="s2">★</label>
+                    <input type="radio" id="s1" name="rating" value="1"><label for="s1">★</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="rvText">Your Review *</label>
+                <textarea id="rvText" placeholder="Tell others about your experience…"></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="rvType">Trip Type</label>
+                    <select id="rvType">
+                        <option value="" disabled selected>Select (optional)</option>
+                        <option>Solo Traveler</option>
+                        <option>Couples</option>
+                        <option>Family</option>
+                        <option>Group of Friends</option>
+                        <option>Business</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="rvDate">Visit Date</label>
+                    <input type="month" id="rvDate">
+                </div>
+            </div>
+
+            <button class="submit-btn" id="rvSubmit" type="button">Submit Review ⭐</button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">🎉 Thank you! Your review has been submitted.</div>
+
+    <script>
+        const AVATARS = ['🌊', '🏄', '☀️', '🌴', '🦀', '🐚', '🌅', '🏖️', '🌺', '🐠'];
+
+        document.getElementById('rvSubmit').addEventListener('click', function () {
+            const name = document.getElementById('rvName').value.trim();
+            const stay = document.getElementById('rvStay').value;
+            const text = document.getElementById('rvText').value.trim();
+            const rating = document.querySelector('input[name="rating"]:checked');
+            const type = document.getElementById('rvType').value;
+            const date = document.getElementById('rvDate').value;
+
+            if (!name || !stay || !text || !rating) {
+                alert('Please fill in your name, staycation, rating, and review text.');
+                return;
+            }
+
+            const stars = parseInt(rating.value);
+            const filled = '★'.repeat(stars) + '☆'.repeat(5 - stars);
+
+            // Format date
+            let dateStr = 'Recently';
+            if (date) {
+                const d = new Date(date + '-01');
+                dateStr = d.toLocaleDateString('en-PH', { year: 'numeric', month: 'long' });
+            }
+
+            // Build card
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            card.style.animation = 'fadeIn 0.4s ease both';
+            card.innerHTML = `
+                <div class="review-header">
+                    <div class="review-avatar">${AVATARS[Math.floor(Math.random() * AVATARS.length)]}</div>
+                    <div class="review-meta">
+                        <div class="review-name">${escapeHtml(name)}</div>
+                        <div class="review-stay">${escapeHtml(stay)} · ${dateStr}</div>
+                    </div>
+                    <div class="review-date">Just now</div>
+                </div>
+                <div class="review-stars">${filled}</div>
+                <div class="review-text">${escapeHtml(text)}</div>
+                ${type ? `<span class="review-tag">${escapeHtml(type)}</span>` : ''}
+            `;
+
+            // Prepend
+            const grid = document.getElementById('reviewsGrid');
+            grid.insertBefore(card, grid.firstChild);
+
+            // Update count
+            const countEl = document.getElementById('totalReviews');
+            countEl.textContent = parseInt(countEl.textContent) + 1;
+
+            // Reset form
+            document.getElementById('rvName').value = '';
+            document.getElementById('rvStay').value = '';
+            document.getElementById('rvText').value = '';
+            document.getElementById('rvType').value = '';
+            document.getElementById('rvDate').value = '';
+            document.querySelectorAll('input[name="rating"]').forEach(r => r.checked = false);
+
+            // Toast
+            showToast();
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+
+        function showToast() {
+            const t = document.getElementById('toast');
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3500);
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+    </script>
+</body>
+
+</html>

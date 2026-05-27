@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | ELYU La Union</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sunset-orange: #FF6B35;
+            --ocean-deep: #0B3B4F;
+            --ocean-wave: #1A6B7A;
+            --ocean-mist: #C4E4EA;
+            --sand-light: #FDF8F0;
+            --sand-warm: #F5E6CC;
+            --terracotta-dk: #9B451D;
+            --text-dark: #1E2A2E;
+            --text-light: #5A6B6F;
+            --bg-body: linear-gradient(135deg, #FDF8F0 0%, #F5E6CC 100%);
+            --sidebar-gradient: linear-gradient(160deg, #0B3B4F 0%, #1A6B7A 100%);
+            --sunset-gradient: linear-gradient(145deg, #FF6B35, #F4A261, #E9C46A);
+            --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px -12px rgba(0, 0, 0, 0.2);
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-body);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        .page-header {
+            background: var(--sidebar-gradient);
+            padding: 2.5rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '❓';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.06;
+            right: -2rem;
+            bottom: -2rem;
+            pointer-events: none;
+        }
+
+        .header-back {
+            position: absolute;
+            top: 1.4rem;
+            left: 1.6rem;
+            background: rgba(255, 255, 255, 0.12);
+            border: none;
+            color: var(--ocean-mist);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header-back:hover {
+            background: var(--sunset-orange);
+            color: white;
+        }
+
+        .page-header .logo {
+            font-family: var(--font-head);
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            background: var(--sunset-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.4rem;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-head);
+            font-size: clamp(1.6rem, 5vw, 2.8rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--ocean-mist);
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        /* Category filter */
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 1.8rem;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--sand-warm);
+            color: var(--text-light);
+            padding: 7px 18px;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--sunset-orange);
+            border-color: var(--sunset-orange);
+            color: white;
+        }
+
+        /* FAQ accordion */
+        .faq-group {
+            margin-bottom: 2rem;
+        }
+
+        .faq-group-title {
+            font-family: var(--font-head);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sunset-orange);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-group-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--sand-warm);
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 18px;
+            margin-bottom: 0.6rem;
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 1.1rem 1.4rem;
+            text-align: left;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: var(--sand-light);
+        }
+
+        .faq-question.open {
+            color: var(--sunset-orange);
+        }
+
+        .faq-chevron {
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: var(--text-light);
+        }
+
+        .faq-question.open .faq-chevron {
+            transform: rotate(180deg);
+            color: var(--sunset-orange);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.2s ease;
+            padding: 0 1.4rem;
+        }
+
+        .faq-answer.open {
+            max-height: 400px;
+            padding-bottom: 1.2rem;
+        }
+
+        .faq-answer p {
+            font-size: 0.86rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .btn-home {
+            display: inline-block;
+            background: var(--sunset-orange);
+            color: white;
+            padding: 13px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 1px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .btn-home:hover {
+            background: var(--terracotta-dk);
+            transform: translateY(-2px);
+        }
+
+        @media(max-width:600px) {
+            .page-header {
+                padding: 3.5rem 1.2rem 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-header">
+        <a href="ELYU-PROJECT2.html" class="header-back">← Back to ELYU</a>
+        <div class="logo">ELYU</div>
+        <h1>❓ FAQs</h1>
+        <p>Everything you need to know about visiting La Union.</p>
+    </div>
+
+    <div class="container">
+
+        <div class="filter-row">
+            <button class="filter-btn active" data-cat="all">All</button>
+            <button class="filter-btn" data-cat="travel">🚗 Getting There</button>
+            <button class="filter-btn" data-cat="beaches">🏖️ Beaches</button>
+            <button class="filter-btn" data-cat="stay">🏨 Staying</button>
+            <button class="filter-btn" data-cat="food">🍜 Food</button>
+            <button class="filter-btn" data-cat="website">💻 Website</button>
+        </div>
+
+        <!-- TRAVEL -->
+        <div class="faq-group" data-cat="travel">
+            <div class="faq-group-title">🚗 Getting to La Union</div>
+
+            <div class="faq-item">
+                <button class="faq-question">How far is La Union from Manila? <span
+                        class="faq-chevron">▼</span></button>
+                <div class="faq-answer">
+                    <p>La Union is approximately 250–280 km north of Manila, which is about 4–6 hours by road depending
+                        on traffic. The most common route is via the NLEX–TPLEX expressway heading towards San Fernando
+                        City.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Can I take a bus to La Union? <span class="faq-chevron">▼</span></button>
+                <div class="faq-answer">
+                    <p>Yes! Several bus lines operate from Manila to San Fernando, La Union including Partas, Dominion,
+                        and Maria de Leon. Most depart from Cubao or Pasay terminals and the trip takes around 5–6
+                        hours. Bus trips to San Juan are also available.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Is there an airport near La Union? <span
+                        class="faq-chevron">▼</span></button>
+                <div class="faq-answer">
+                    <p>There is no commercial airport in La Union. The nearest major airports are NAIA in Manila and the
+                        Laoag International Airport in Ilocos Norte. Most visitors travel by road from Manila.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- BEACHES -->
+        <div class="faq-group" data-cat="beaches">
+            <div class="faq-group-title">🏖️ Beaches & Surfing</div>
+
+            <div class="faq-item">
+                <button class="faq-question">What is the best time to visit La Union beaches? <span
+                        class="faq-chevron">▼</span></button>
+                <div class="faq-answer">
+                    <p>The best months for surfing are October to February when the northeast monsoon (amihan) brings
+                        consistent swells. For calm swimming, March to May offers warm, clear waters. La Union is
+                        generally visitable year-round.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Do I need experience to surf in La Union? <span
+                        class="faq-chevron">▼</span></button>
+                <div class="faq-answer">
+                    <p>No! San Juan Beach is one of the best places in Asia to learn to surf. Dozens of surf schools and
+                        instructors offer beginner lessons daily. Board rentals are also widely available along the
+                        beach strip.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Are the beaches in La Union free to enter? <span
+                        class="faq-chevron">▼</span></button>
+                <div class="faq-answer">
+                    <p>Most beaches like San Juan and Bauang are free to access. Some resort beaches require a minimum
+                        spend or entrance fee if you're using their facilities. Public sections are always free.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STAYING -->
+        <div class="faq-group" data-cat="stay">
+            <div class="faq-group-title">🏨 Accommodation</div>
+
+            <div class="faq-item">
+                <button class="faq-question">How do I book a staycation through ELYU? <span
+                        class="faq-chevron">▼</span></button>
+                <div class="faq-answer">
+                    <p>Click on any staycation card to open its details modal, then click the "Schedule Now" button.
+                        This opens our booking form where you can select your dates, room type, and number of guests.
+                        You'll receive a confirmation reference upon submission.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">What is the typical price range for accommodations? <span
+                        class="faq-chevron">▼</span></button>
+                <div class="faq-answer">
+                    <p>Prices vary widely. Budget dorms at surf hostels start from around ₱500–₱800/night per person.
+                        Mid-range resorts range from ₱2,500–₱6,000/night. Luxury resorts like Thunderbird and Aureo can
+                        range from ₱8,000–₱25,000+/night.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOD -->
+        <div class="faq-group" data-cat="food">
+            <div class="faq-group-title">🍜 Food & Dining</div>
+
+            <div class="faq-item">
+                <button class="faq-question">What food should I must try in La Union? <span
+                        class="faq-chevron">▼</span></button>
+                <div class="faq-answer">
+                    <p>The absolute must-tries are Baluarte (Ilocano grilled meat), Pindang (salted dried fish), Inasin
+                        (grilled salted fish), and Basi wine. For cafes, El Union Coffee's dirty horchata is practically
+                        a pilgrimage destination for coffee lovers.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">Are there vegetarian or vegan options in La Union? <span
+                        class="faq-chevron">▼</span></button>
+                <div class="faq-answer">
+                    <p>While traditional Ilocano cuisine is largely meat and seafood-based, many modern cafes and
+                        restaurants in San Juan cater to vegetarians and vegans. Look for places like Great Northwest
+                        and the various cafes along the beach strip.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- WEBSITE -->
+        <div class="faq-group" data-cat="website">
+            <div class="faq-group-title">💻 About This Website</div>
+
+            <div class="faq-item">
+                <button class="faq-question">What is the ELYU website? <span class="faq-chevron">▼</span></button>
+                <div class="faq-answer">
+                    <p>ELYU is a tourism guide website dedicated to La Union, Philippines. It covers the top beaches,
+                        must-try foods, best staycations, and cafes — with detailed information and booking tools to
+                        help you plan your perfect La Union trip.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">How do I report incorrect information? <span
+                        class="faq-chevron">▼</span></button>
+                <div class="faq-answer">
+                    <p>Please use the Contact Us page to send us a message. We take accuracy seriously and will
+                        investigate and update any incorrect listings as quickly as possible.</p>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center;margin-top:1rem;">
+            <a href="ELYU-PROJECT2.html" class="btn-home">← Back to ELYU</a>
+        </div>
+    </div>
+
+    <script>
+        // Accordion
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const answer = this.nextElementSibling;
+                const isOpen = this.classList.contains('open');
+
+                // Close all
+                document.querySelectorAll('.faq-question.open').forEach(b => {
+                    b.classList.remove('open');
+                    b.nextElementSibling.classList.remove('open');
+                });
+
+                if (!isOpen) {
+                    this.classList.add('open');
+                    answer.classList.add('open');
+                }
+            });
+        });
+
+        // Category filter
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const cat = this.dataset.cat;
+                document.querySelectorAll('.faq-group').forEach(group => {
+                    if (cat === 'all' || group.dataset.cat === cat) {
+                        group.style.display = 'block';
+                    } else {
+                        group.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | ELYU La Union</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sunset-orange: #FF6B35;
+            --ocean-deep: #0B3B4F;
+            --ocean-mist: #C4E4EA;
+            --sand-light: #FDF8F0;
+            --sand-warm: #F5E6CC;
+            --terracotta-dk: #9B451D;
+            --text-dark: #1E2A2E;
+            --text-light: #5A6B6F;
+            --bg-body: linear-gradient(135deg, #FDF8F0 0%, #F5E6CC 100%);
+            --sidebar-gradient: linear-gradient(160deg, #0B3B4F 0%, #1A6B7A 100%);
+            --sunset-gradient: linear-gradient(145deg, #FF6B35, #F4A261, #E9C46A);
+            --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px -12px rgba(0, 0, 0, 0.2);
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-body);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        .page-header {
+            background: var(--sidebar-gradient);
+            padding: 2.5rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '📋';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.06;
+            right: -2rem;
+            bottom: -2rem;
+            pointer-events: none;
+        }
+
+        .header-back {
+            position: absolute;
+            top: 1.4rem;
+            left: 1.6rem;
+            background: rgba(255, 255, 255, 0.12);
+            border: none;
+            color: var(--ocean-mist);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header-back:hover {
+            background: var(--sunset-orange);
+            color: white;
+        }
+
+        .page-header .logo {
+            font-family: var(--font-head);
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            background: var(--sunset-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.4rem;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-head);
+            font-size: clamp(1.6rem, 5vw, 2.8rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--ocean-mist);
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .container {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        .doc-card {
+            background: white;
+            border-radius: 28px;
+            padding: 2.5rem 2.2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .doc-updated {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            margin-bottom: 1.8rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--sand-warm);
+        }
+
+        .doc-section {
+            margin-bottom: 2rem;
+        }
+
+        .doc-section h2 {
+            font-family: var(--font-head);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--ocean-deep);
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .doc-section p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.75;
+            margin-bottom: 0.6rem;
+        }
+
+        .doc-section ul {
+            padding-left: 1.4rem;
+            margin-top: 0.4rem;
+        }
+
+        .doc-section ul li {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 0.3rem;
+        }
+
+        .btn-home {
+            display: inline-block;
+            background: var(--sunset-orange);
+            color: white;
+            padding: 13px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 1px;
+            transition: background 0.2s, transform 0.2s;
+            margin-top: 1.5rem;
+        }
+
+        .btn-home:hover {
+            background: var(--terracotta-dk);
+            transform: translateY(-2px);
+        }
+
+        @media(max-width:600px) {
+            .doc-card {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .page-header {
+                padding: 3.5rem 1.2rem 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-header">
+        <a href="ELYU-PROJECT2.html" class="header-back">← Back to ELYU</a>
+        <div class="logo">ELYU</div>
+        <h1>📋 Terms & Conditions</h1>
+        <p>Please read these terms before using the ELYU platform.</p>
+    </div>
+
+    <div class="container">
+        <div class="doc-card">
+            <div class="doc-updated">Last updated: January 2024 &nbsp;·&nbsp; Effective immediately upon use of this
+                website.</div>
+
+            <div class="doc-section">
+                <h2>1. 📌 Acceptance of Terms</h2>
+                <p>By accessing and using the ELYU Tourism Website ("the Site"), you agree to be bound by these Terms
+                    and Conditions. If you do not agree with any part of these terms, please discontinue your use of the
+                    Site immediately.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2>2. 🌐 Use of the Website</h2>
+                <p>The ELYU website is provided for informational and travel planning purposes related to La Union,
+                    Philippines. You agree to use the Site only for lawful purposes and in a way that does not infringe
+                    the rights of others.</p>
+                <ul>
+                    <li>You may not reproduce or redistribute content without written permission.</li>
+                    <li>You may not use automated tools to scrape or crawl the Site.</li>
+                    <li>You may not use the Site to transmit harmful, offensive, or illegal content.</li>
+                </ul>
+            </div>
+
+            <div class="doc-section">
+                <h2>3. 📅 Booking & Scheduling</h2>
+                <p>The scheduling feature on ELYU connects users with La Union staycation providers. All bookings are
+                    subject to availability and confirmation by the individual property. ELYU serves as an information
+                    platform and is not directly responsible for the services provided by third-party accommodation
+                    partners.</p>
+                <ul>
+                    <li>Cancellation policies vary by property.</li>
+                    <li>Payment is handled directly between guests and properties.</li>
+                    <li>ELYU is not liable for disputes arising from bookings.</li>
+                </ul>
+            </div>
+
+            <div class="doc-section">
+                <h2>4. ⭐ User Reviews</h2>
+                <p>Reviews submitted through ELYU reflect the personal opinions of individual guests. ELYU does not
+                    verify the accuracy of reviews but reserves the right to remove content that is offensive,
+                    defamatory, or in violation of these terms.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2>5. 🔒 Privacy</h2>
+                <p>We are committed to protecting your privacy. Personal information submitted through contact forms or
+                    booking forms is used solely to respond to your inquiries and facilitate your travel experience. We
+                    do not sell your data to third parties.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2>6. 🖼️ Intellectual Property</h2>
+                <p>All content on this website — including text, images, design, and code — is the property of the ELYU
+                    team unless otherwise attributed. Unsplash images are used in accordance with their open license.
+                    All rights are reserved.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2>7. ⚠️ Disclaimer</h2>
+                <p>Information on this website is provided in good faith and for general informational purposes. ELYU
+                    makes no guarantees about the accuracy, completeness, or suitability of any information. Travel
+                    conditions, prices, and availability are subject to change without notice.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2>8. 📝 Changes to Terms</h2>
+                <p>ELYU reserves the right to update these Terms and Conditions at any time. Continued use of the Site
+                    following any changes constitutes acceptance of the new terms.</p>
+            </div>
+
+            <div class="doc-section">
+                <h2>9. 📞 Contact</h2>
+                <p>If you have questions about these terms, please contact us at <strong>tourism@launion.gov.ph</strong>
+                    or call <strong>(072) 242-5555</strong>.</p>
+            </div>
+
+            <a href="ELYU-PROJECT2.html" class="btn-home">← Back to ELYU</a>
+        </div>
+    </div>
+</body>
+
+</html>

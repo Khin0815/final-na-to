@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Your Stay | ELYU La Union</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sunset-orange: #FF6B35;
+            --sunset-coral: #F4A261;
+            --sunset-gold: #E9C46A;
+            --ocean-deep: #0B3B4F;
+            --ocean-wave: #1A6B7A;
+            --ocean-shallow: #4AA3B0;
+            --ocean-mist: #C4E4EA;
+            --sand-light: #FDF8F0;
+            --sand-warm: #F5E6CC;
+            --terracotta: #C1612E;
+            --terracotta-dk: #9B451D;
+            --text-dark: #1E2A2E;
+            --text-light: #5A6B6F;
+            --bg-body: linear-gradient(135deg, #FDF8F0 0%, #F5E6CC 100%);
+            --sidebar-gradient: linear-gradient(160deg, #0B3B4F 0%, #1A6B7A 100%);
+            --sunset-gradient: linear-gradient(145deg, #FF6B35, #F4A261, #E9C46A);
+            --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+            --shadow-lg: 0 20px 40px -12px rgba(0, 0, 0, 0.2);
+            --radius: 28px;
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-body);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        /* ---- PAGE HEADER ---- */
+        .page-header {
+            background: var(--sidebar-gradient);
+            padding: 2.5rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '🏄‍♂️';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.06;
+            right: -2rem;
+            bottom: -2rem;
+            pointer-events: none;
+        }
+
+        .header-back {
+            position: absolute;
+            top: 1.4rem;
+            left: 1.6rem;
+            background: rgba(255, 255, 255, 0.12);
+            border: none;
+            color: var(--ocean-mist);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header-back:hover {
+            background: var(--sunset-orange);
+            color: white;
+        }
+
+        .page-header .logo {
+            font-family: var(--font-head);
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            background: var(--sunset-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.4rem;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-head);
+            font-size: clamp(1.6rem, 5vw, 2.8rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--ocean-mist);
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        /* ---- MAIN CONTAINER ---- */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        /* ---- FORM CARD ---- */
+        .form-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2.5rem 2.2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .form-section-title {
+            font-family: var(--font-head);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sunset-orange);
+            margin-bottom: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--sand-warm);
+        }
+
+        .form-group {
+            margin-bottom: 1.3rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.83rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--sand-warm);
+            border-radius: 14px;
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            background: var(--sand-light);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--sunset-orange);
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.12);
+            background: white;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-divider {
+            height: 1px;
+            background: var(--sand-warm);
+            margin: 1.8rem 0;
+        }
+
+        /* Guest count stepper */
+        .guest-stepper {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            border: 2px solid var(--sand-warm);
+            border-radius: 14px;
+            overflow: hidden;
+            background: var(--sand-light);
+            width: fit-content;
+            min-width: 140px;
+        }
+
+        .stepper-btn {
+            background: none;
+            border: none;
+            width: 42px;
+            height: 46px;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--sunset-orange);
+            transition: background 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .stepper-btn:hover {
+            background: var(--sand-warm);
+        }
+
+        .stepper-count {
+            flex: 1;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-dark);
+            font-family: var(--font-head);
+            min-width: 40px;
+        }
+
+        /* Submit */
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--sunset-orange);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: var(--font-head);
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            margin-top: 1rem;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .submit-btn:hover {
+            background: var(--terracotta-dk);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(255, 107, 53, 0.35);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* ---- CONFIRMATION ---- */
+        .confirmation {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+            animation: fadeSlideUp 0.6s ease both;
+        }
+
+        .confirmation.visible {
+            display: block;
+        }
+
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .confirm-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: popIn 0.5s 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.2) both;
+        }
+
+        @keyframes popIn {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .confirmation h2 {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--ocean-deep);
+            margin-bottom: 0.8rem;
+        }
+
+        .confirmation p {
+            color: var(--text-light);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            max-width: 400px;
+            margin: 0 auto 1.6rem;
+        }
+
+        .confirm-ref {
+            display: inline-block;
+            background: var(--sand-warm);
+            border-radius: 12px;
+            padding: 0.6rem 1.4rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--sunset-orange);
+            letter-spacing: 2px;
+            margin-bottom: 1.8rem;
+        }
+
+        .confirm-details {
+            background: var(--sand-light);
+            border-radius: 18px;
+            padding: 1.2rem 1.4rem;
+            text-align: left;
+            margin-bottom: 1.8rem;
+            border: 1px solid var(--sand-warm);
+        }
+
+        .confirm-detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.4rem 0;
+            font-size: 0.84rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .confirm-detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .confirm-detail-row span:first-child {
+            color: var(--text-light);
+        }
+
+        .confirm-detail-row span:last-child {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .btn-back-home {
+            display: inline-block;
+            background: var(--sunset-orange);
+            color: white;
+            padding: 13px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 1px;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-back-home:hover {
+            background: var(--terracotta-dk);
+            transform: translateY(-2px);
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 600px) {
+            .form-card {
+                padding: 1.8rem 1.2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header {
+                padding: 3.5rem 1.2rem 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="page-header">
+        <a href="ELYU-PROJECT2.html" class="header-back">← Back to ELYU</a>
+        <div class="logo">ELYU</div>
+        <h1>📅 Schedule Your Stay</h1>
+        <p>Book your perfect La Union getaway in just a few steps.</p>
+    </div>
+
+    <div class="container">
+        <div class="form-card" id="formCard">
+
+            <!-- PERSONAL INFO -->
+            <div class="form-section-title">👤 Personal Information</div>
+
+            <div class="form-group">
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" placeholder="e.g. Juan dela Cruz" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" placeholder="e.g. juan@email.com" required>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- BOOKING DETAILS -->
+            <div class="form-section-title">🏨 Booking Details</div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="checkIn">Check-in Date *</label>
+                    <input type="date" id="checkIn" required>
+                </div>
+                <div class="form-group">
+                    <label for="checkOut">Check-out Date *</label>
+                    <input type="date" id="checkOut" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="arrivalTime">Preferred Arrival Time *</label>
+                    <input type="time" id="arrivalTime" required>
+                </div>
+                <div class="form-group">
+                    <label for="roomType">Room / Package *</label>
+                    <select id="roomType" required>
+                        <option value="" disabled selected>Select a type</option>
+                        <option>Beachfront Dorm</option>
+                        <option>Standard Room</option>
+                        <option>Deluxe Ocean View</option>
+                        <option>Suite</option>
+                        <option>Family Package</option>
+                        <option>Surf Package</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Number of Guests *</label>
+                <div class="guest-stepper">
+                    <button class="stepper-btn" id="guestMinus" type="button" aria-label="Decrease guests">−</button>
+                    <span class="stepper-count" id="guestCount">2</span>
+                    <button class="stepper-btn" id="guestPlus" type="button" aria-label="Increase guests">+</button>
+                </div>
+            </div>
+
+            <div class="form-divider"></div>
+
+            <!-- SPECIAL REQUESTS -->
+            <div class="form-section-title">💬 Special Requests</div>
+
+            <div class="form-group">
+                <label for="requests">Notes or Requests (optional)</label>
+                <textarea id="requests" placeholder="Early check-in, dietary needs, celebration setup…"></textarea>
+            </div>
+
+            <button class="submit-btn" id="submitBtn" type="button">Confirm Booking 🌊</button>
+        </div>
+
+        <!-- CONFIRMATION MESSAGE -->
+        <div class="confirmation" id="confirmationBox">
+            <span class="confirm-icon">🎉</span>
+            <h2>You're All Set!</h2>
+            <p>Your stay in La Union has been scheduled. A confirmation has been sent to your email.</p>
+            <div class="confirm-ref" id="confirmRef">REF: ELYU-000000</div>
+            <div class="confirm-details" id="confirmDetails"></div>
+            <a href="ELYU-PROJECT2.html" class="btn-back-home">← Back to ELYU</a>
+        </div>
+    </div>
+
+    <script>
+        // Set min date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('checkIn').min = today;
+        document.getElementById('checkOut').min = today;
+
+        document.getElementById('checkIn').addEventListener('change', function () {
+            document.getElementById('checkOut').min = this.value;
+        });
+
+        // Guest stepper
+        let guests = 2;
+        const guestCountEl = document.getElementById('guestCount');
+
+        document.getElementById('guestMinus').addEventListener('click', function () {
+            if (guests > 1) { guests--; guestCountEl.textContent = guests; }
+        });
+
+        document.getElementById('guestPlus').addEventListener('click', function () {
+            if (guests < 20) { guests++; guestCountEl.textContent = guests; }
+        });
+
+        // Submit
+        document.getElementById('submitBtn').addEventListener('click', function () {
+            const name = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+            const arrTime = document.getElementById('arrivalTime').value;
+            const roomType = document.getElementById('roomType').value;
+
+            // Basic validation
+            if (!name || !email || !checkIn || !checkOut || !arrTime || !roomType) {
+                alert('Please fill in all required fields before confirming.');
+                return;
+            }
+
+            if (new Date(checkOut) <= new Date(checkIn)) {
+                alert('Check-out date must be after check-in date.');
+                return;
+            }
+
+            // Build ref number
+            const ref = 'ELYU-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+            document.getElementById('confirmRef').textContent = 'REF: ' + ref;
+
+            // Build confirm details
+            const fmt = d => new Date(d + 'T00:00:00').toLocaleDateString('en-PH', { year: 'numeric', month: 'long', day: 'numeric' });
+            document.getElementById('confirmDetails').innerHTML = `
+                <div class="confirm-detail-row"><span>Guest Name</span><span>${name}</span></div>
+                <div class="confirm-detail-row"><span>Email</span><span>${email}</span></div>
+                <div class="confirm-detail-row"><span>Check-in</span><span>${fmt(checkIn)}</span></div>
+                <div class="confirm-detail-row"><span>Check-out</span><span>${fmt(checkOut)}</span></div>
+                <div class="confirm-detail-row"><span>Arrival Time</span><span>${arrTime}</span></div>
+                <div class="confirm-detail-row"><span>Room / Package</span><span>${roomType}</span></div>
+                <div class="confirm-detail-row"><span>Guests</span><span>${guests} person${guests > 1 ? 's' : ''}</span></div>
+            `;
+
+            // Switch views
+            document.getElementById('formCard').style.display = 'none';
+            const box = document.getElementById('confirmationBox');
+            box.classList.add('visible');
+            box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | ELYU La Union</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sunset-orange: #FF6B35;
+            --sunset-gold: #E9C46A;
+            --ocean-deep: #0B3B4F;
+            --ocean-wave: #1A6B7A;
+            --ocean-mist: #C4E4EA;
+            --sand-light: #FDF8F0;
+            --sand-warm: #F5E6CC;
+            --terracotta-dk: #9B451D;
+            --text-dark: #1E2A2E;
+            --text-light: #5A6B6F;
+            --bg-body: linear-gradient(135deg, #FDF8F0 0%, #F5E6CC 100%);
+            --sidebar-gradient: linear-gradient(160deg, #0B3B4F 0%, #1A6B7A 100%);
+            --sunset-gradient: linear-gradient(145deg, #FF6B35, #F4A261, #E9C46A);
+            --ocean-gradient: linear-gradient(145deg, #0B3B4F, #1A6B7A, #4AA3B0);
+            --shadow-sm: 0 5px 20px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 20px 40px -12px rgba(0, 0, 0, 0.2);
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-body);
+            color: var(--text-dark);
+            min-height: 100vh;
+        }
+
+        .page-header {
+            background: var(--sidebar-gradient);
+            padding: 2.5rem 2rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '👥';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.06;
+            right: -2rem;
+            bottom: -2rem;
+            pointer-events: none;
+        }
+
+        .header-back {
+            position: absolute;
+            top: 1.4rem;
+            left: 1.6rem;
+            background: rgba(255, 255, 255, 0.12);
+            border: none;
+            color: var(--ocean-mist);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header-back:hover {
+            background: var(--sunset-orange);
+            color: white;
+        }
+
+        .page-header .logo {
+            font-family: var(--font-head);
+            font-size: 1rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            background: var(--sunset-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.4rem;
+        }
+
+        .page-header h1 {
+            font-family: var(--font-head);
+            font-size: clamp(1.6rem, 5vw, 2.8rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--ocean-mist);
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        .mission-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 2rem;
+            text-align: center;
+            border-top: 4px solid var(--sunset-orange);
+        }
+
+        .mission-card h2 {
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--ocean-deep);
+            margin-bottom: 1rem;
+        }
+
+        .mission-card p {
+            color: var(--text-light);
+            line-height: 1.75;
+            font-size: 0.93rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: var(--font-head);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--sunset-orange);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--sand-warm);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem 1.4rem;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--ocean-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            margin: 0 auto 1rem;
+        }
+
+        .team-name {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--ocean-deep);
+            margin-bottom: 3px;
+        }
+
+        .team-role {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--sunset-orange);
+            margin-bottom: 0.6rem;
+        }
+
+        .team-desc {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            line-height: 1.55;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.4rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--sunset-orange);
+        }
+
+        .value-icon {
+            font-size: 2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .value-title {
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--ocean-deep);
+            margin-bottom: 0.4rem;
+        }
+
+        .value-desc {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .btn-home {
+            display: inline-block;
+            background: var(--sunset-orange);
+            color: white;
+            padding: 13px 36px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-weight: 700;
+            font-size: 0.88rem;
+            letter-spacing: 1px;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .btn-home:hover {
+            background: var(--terracotta-dk);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width:600px) {
+            .page-header {
+                padding: 3.5rem 1.2rem 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-header">
+        <a href="ELYU-PROJECT2.html" class="header-back">← Back to ELYU</a>
+        <div class="logo">ELYU</div>
+        <h1>👥 About Us</h1>
+        <p>The people and purpose behind the ELYU Tourism Website.</p>
+    </div>
+
+    <div class="container">
+
+        <div class="mission-card">
+            <h2>🌊 Our Mission</h2>
+            <p>ELYU was born from a deep love for La Union — its waves, its culture, its sunsets, and its people. Our
+                mission is to be the most authentic and inspiring digital guide to the Surf Capital of the Northern
+                Philippines, connecting travelers with the best that La Union has to offer.</p>
+        </div>
+
+        <div class="section-label">👤 Meet the Team</div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">🌊</div>
+                <div class="team-name">Alex Rivera</div>
+                <div class="team-role">Project Lead</div>
+                <div class="team-desc">Oversees the entire ELYU project, ensuring the vision of La Union comes to life
+                    through design and content.</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">🎨</div>
+                <div class="team-name">Mia Santos</div>
+                <div class="team-role">UI/UX Designer</div>
+                <div class="team-desc">Crafted the sunset-inspired visual identity and ensured every pixel reflects the
+                    beauty of La Union.</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">💻</div>
+                <div class="team-name">Kai Reyes</div>
+                <div class="team-role">Web Developer</div>
+                <div class="team-desc">Built the interactive features, smooth animations, and responsive layout powering
+                    this tourism website.</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">✍️</div>
+                <div class="team-name">Lea Domingo</div>
+                <div class="team-role">Content Writer</div>
+                <div class="team-desc">Researched and wrote the cultural histories, food descriptions, and travel guides
+                    found throughout the site.</div>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">📸</div>
+                <div class="team-name">Marco Cruz</div>
+                <div class="team-role">Photo Curator</div>
+                <div class="team-desc">Sourced and curated every image, ensuring they authentically capture the soul of
+                    La Union.</div>
+            </div>
+        </div>
+
+        <div class="section-label">💡 Our Values</div>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">🌊</div>
+                <div class="value-title">Authenticity</div>
+                <div class="value-desc">We showcase the real La Union — no filters, just honest stories from locals and
+                    travelers alike.</div>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🌱</div>
+                <div class="value-title">Sustainability</div>
+                <div class="value-desc">We promote responsible tourism that respects the environment and supports local
+                    communities.</div>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">🤝</div>
+                <div class="value-title">Community</div>
+                <div class="value-desc">We celebrate the vibrant surf culture, food scene, and creative spirit that
+                    makes La Union unique.</div>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">✨</div>
+                <div class="value-title">Excellence</div>
+                <div class="value-desc">We strive to give travelers the best digital experience before they even arrive
+                    at the beach.</div>
+            </div>
+        </div>
+
+        <div style="text-align:center;margin-top:1rem;">
+            <a href="ELYU-PROJECT2.html" class="btn-home">← Back to ELYU</a>
+        </div>
+    </div>
+</body>
+
+</html>
