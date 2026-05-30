@@ -1,6 +1,6 @@
 /* ============================================================
-   ELYU - La Union Tourism Website
-   LAUNION.js — Fully fixed for mobile on GitHub Pages
+   ELYU — LAUNION.js
+   Fixed for mobile GitHub Pages — all cards clickable
 ============================================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 San Juan, La Union',
                 mapUrl: 'https://www.google.com/maps/search/San+Juan+Beach+La+Union+Philippines',
                 images: ['La Union 2024.jpg', 'surf1.jpg', 'surf2.jpg'],
-                desc: 'San Juan is the undisputed surfing capital of Northern Philippines. With consistent swells hitting the shore year-round, it attracts beginners and veteran surfers alike. The vibe here is laid-back and bohemian, with surf shacks, reggae music, and ocean sunsets that never get old.',
+                desc: 'San Juan is the undisputed surfing capital of Northern Philippines. With consistent swells hitting the shore year-round, it attracts beginners and veteran surfers alike. The vibe is laid-back and bohemian, with surf shacks, reggae music, and ocean sunsets that never get old.',
                 facts: ['Best surf months: Oct–Feb', 'Consistent 3–6 ft waves', 'Beginner-friendly breaks', 'Annual surf competitions', 'Night market every weekend'],
                 rating: 5
             },
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 Bauang, La Union',
                 mapUrl: 'https://www.google.com/maps/search/Bauang+Beach+La+Union+Philippines',
                 images: ['download (5).jpg', 'download (4).jpg', 'calm.jpg'],
-                desc: 'Bauang offers calm, family-friendly waters perfect for swimming and relaxed beach days. Lined with resorts and beach clubs, it\'s ideal for day trips or weekend staycations from Manila.',
+                desc: 'Bauang offers calm, family-friendly waters perfect for swimming and relaxed beach days. Lined with resorts and beach clubs, ideal for day trips or weekend staycations from Manila.',
                 facts: ['Calm swimming waters', 'Multiple beach resorts', '5 hrs drive from Manila', 'Beachfront dining', 'Ideal for families'],
                 rating: 4
             },
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 Luna, La Union',
                 mapUrl: 'https://www.google.com/maps/search/Darigayos+Cove+Luna+La+Union+Philippines',
                 images: ['Pebble Beach Elyu.jpg', 'stone.jpg', 'stones.jpg'],
-                desc: 'Darigayos Cove is a secluded paradise tucked away in Luna. The dramatic rock formations and crystal-clear emerald waters make it feel like a hidden world. Perfect for snorkeling, cliff jumping, and exploring sea caves.',
+                desc: 'Darigayos Cove is a secluded paradise tucked away in Luna. Dramatic rock formations and crystal-clear emerald waters make it feel like a hidden world. Perfect for snorkeling, cliff jumping, and sea caves.',
                 facts: ['Crystal-clear waters', 'Rock formation snorkeling', 'Sea cave exploration', 'Less crowded', 'Cliff jumping spots'],
                 rating: 5
             },
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 Santo Tomas, La Union',
                 mapUrl: 'https://www.google.com/maps/search/Pebble+Beach+Santo+Tomas+La+Union+Philippines',
                 images: ['download (2).jpg', 'gg.jpg', 'ggs.jpg'],
-                desc: 'Unlike typical sandy shores, Pebble Beach is covered with smooth, polished stones shaped by years of ocean waves. The sound of waves rolling over pebbles is incredibly soothing and meditative.',
+                desc: 'Unlike typical sandy shores, Pebble Beach is covered with smooth, polished stones shaped by years of ocean waves. The sound of waves rolling over pebbles is incredibly soothing.',
                 facts: ['Unique pebble shoreline', 'Ideal for photography', 'Calming wave sounds', 'Great for reflection walks', 'Accessible by vehicle'],
                 rating: 4
             },
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 Luna, La Union',
                 mapUrl: 'https://www.google.com/maps/search/Luna+Beach+La+Union+Philippines',
                 images: ['luna.jpg', 'lunas.jpg', 'lunase.jpg'],
-                desc: 'Luna Beach is the serene escape you never knew you needed. Far from the bustling tourist crowds, it\'s perfect for morning walks, yoga sessions by the water, or simply watching the world slow down.',
+                desc: 'Luna Beach is the serene escape you never knew you needed. Far from the tourist crowds, perfect for morning walks, yoga by the water, or simply watching the world slow down.',
                 facts: ['Quiet & uncrowded', 'Perfect for sunrise walks', 'Near Darigayos Cove', 'Great beach camping', 'Local fishermen vibes'],
                 rating: 4
             }
@@ -71,13 +71,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 category: 'Local Cuisine',
                 location: '📍 Various spots, La Union',
                 image: 'food.jpg',
-                desc: 'Baluarte is a beloved La Union specialty — grilled meat marinated in a unique blend of native spices, citrus, and fermented ingredients. Smoky, tangy, and absolutely addictive, best enjoyed with steaming white rice.',
+                desc: 'Baluarte is grilled meat marinated in a unique blend of native spices, citrus, and fermented ingredients. Smoky, tangy, and absolutely addictive — best enjoyed with steaming white rice.',
                 facts: ['Pork or chicken variants', 'Slow-grilled to perfection', 'Best paired with sinanglaw', 'Available in wet markets', 'Ilocano heritage dish'],
                 rating: 5,
                 restaurants: [
-                    { name: 'Sinanglawan ni Lola', desc: 'Famous for traditional Ilocano grills and authentic baluarte cooked over live charcoal.', address: '📍 Quezon Ave., San Fernando City, La Union' },
-                    { name: 'Kusina ni Manang', desc: 'A homestyle restaurant beloved by locals for its market-fresh baluarte marinated overnight.', address: '📍 Brgy. Catbangen, San Fernando, La Union' },
-                    { name: 'The Grill House La Union', desc: 'Open-air barbecue spot serving various Ilocano grills including their signature baluarte platter.', address: '📍 National Highway, San Juan, La Union' }
+                    { name: 'Sinanglawan ni Lola', desc: 'Traditional Ilocano grills cooked over live charcoal.', address: '📍 Quezon Ave., San Fernando City' },
+                    { name: 'Kusina ni Manang', desc: 'Homestyle restaurant with market-fresh baluarte.', address: '📍 Brgy. Catbangen, San Fernando' },
+                    { name: 'The Grill House La Union', desc: 'Open-air barbecue with signature baluarte platter.', address: '📍 National Highway, San Juan' }
                 ]
             },
             {
@@ -85,12 +85,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 category: 'Local Cuisine',
                 location: '📍 San Fernando City, La Union',
                 image: 'pindand f.jpg',
-                desc: 'Pindang is salted and dried fish — a staple of the Ilocano breakfast table. Pan-fried to golden crispness and paired with garlic rice and tomatoes, it\'s the ultimate comfort food.',
+                desc: 'Pindang is salted and dried fish — a staple of the Ilocano breakfast table. Pan-fried to golden crispness and paired with garlic rice and tomatoes.',
                 facts: ['Classic Ilocano breakfast', 'Various fish varieties', 'Best with garlic sinangag', 'Sold in tiangge markets', 'Sun-dried traditional method'],
                 rating: 4,
                 restaurants: [
-                    { name: 'Amianan Breakfast Turo-Turo', desc: 'Canteen-style eatery that serves authentic silog breakfast with fresh-from-market pindang daily.', address: '📍 Public Market Area, San Fernando City, La Union' },
-                    { name: 'Lola Nena\'s Tapsilog House', desc: 'A tiny but iconic spot run by a third-generation Ilocano family; their pindang is sun-dried in-house.', address: '📍 Quezon St., Bauang, La Union' }
+                    { name: 'Amianan Breakfast Turo-Turo', desc: 'Authentic silog breakfast with fresh pindang daily.', address: '📍 Public Market Area, San Fernando' },
+                    { name: "Lola Nena's Tapsilog House", desc: 'Third-generation family; pindang sun-dried in-house.', address: '📍 Quezon St., Bauang' }
                 ]
             },
             {
@@ -98,12 +98,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 category: 'Traditional Drink',
                 location: '📍 San Fernando City, La Union',
                 image: 'base wine.jpg',
-                desc: 'Basi is an ancient fermented sugarcane wine dating back to pre-colonial times. It has a unique sweet-sour taste with earthy undertones. The famous Basi Revolt of 1807 was sparked when colonizers monopolized its production.',
+                desc: 'Basi is an ancient fermented sugarcane wine dating back to pre-colonial times. Sweet-sour with earthy undertones. The Basi Revolt of 1807 was sparked when colonizers monopolized its production.',
                 facts: ['Pre-colonial origin', 'Sugarcane fermented', 'Symbol of Ilocano identity', 'Sparked the Basi Revolt', 'Available in souvenir shops'],
                 rating: 5,
                 restaurants: [
-                    { name: 'Bodega de Basi', desc: 'A heritage wine house offering tastings and bottles of traditionally brewed basi alongside Ilocano dishes.', address: '📍 Cabuloan, San Fernando, La Union' },
-                    { name: 'La Union Heritage Resto-Bar', desc: 'Craft cocktails and traditional basi served with a side of local history and live folk music.', address: '📍 Quezon Ave., San Fernando City, La Union' }
+                    { name: 'Bodega de Basi', desc: 'Heritage wine house with tastings and Ilocano dishes.', address: '📍 Cabuloan, San Fernando' },
+                    { name: 'La Union Heritage Resto-Bar', desc: 'Traditional basi with live folk music.', address: '📍 Quezon Ave., San Fernando' }
                 ]
             },
             {
@@ -111,13 +111,13 @@ document.addEventListener('DOMContentLoaded', function () {
                 category: 'Local Cuisine',
                 location: '📍 Coastal towns, La Union',
                 image: 'inasin.jpg',
-                desc: 'Inasin is fresh fish rubbed with coarse rock salt and grilled over open charcoal flames. The simple preparation lets the natural sweetness of fresh-catch La Union fish shine through. Beach food at its purest.',
+                desc: 'Inasin is fresh fish rubbed with coarse rock salt and grilled over open charcoal flames. Simple preparation lets the natural sweetness of fresh-catch fish shine through.',
                 facts: ['Fresh local catch', 'Rock salt seasoning only', 'Charcoal-grilled', 'Best eaten beachside', 'Often caught same day'],
                 rating: 4,
                 restaurants: [
-                    { name: 'Seaside Grill & Seafood', desc: 'Beachfront restaurant where you pick your fish from a live display tank and watch it grilled to order.', address: '📍 Urbiztondo Beach, San Juan, La Union' },
-                    { name: 'Dalampasigan Seafood House', desc: 'Famous for their inasin platter with four varieties of fresh catch, served with native vinegar dips.', address: '📍 Brgy. Ili Norte, Bauang, La Union' },
-                    { name: 'Bangkero\'s Fish Grill', desc: 'Run by local fishermen families; the catch is harvested daily and served grilled on bamboo plates.', address: '📍 Darigayos, Luna, La Union' }
+                    { name: 'Seaside Grill & Seafood', desc: 'Pick your fish from a live tank, grilled to order.', address: '📍 Urbiztondo Beach, San Juan' },
+                    { name: 'Dalampasigan Seafood House', desc: 'Inasin platter with four fresh catch varieties.', address: '📍 Brgy. Ili Norte, Bauang' },
+                    { name: "Bangkero's Fish Grill", desc: 'Daily-harvested catch served on bamboo plates.', address: '📍 Darigayos, Luna' }
                 ]
             }
         ],
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 scheduleUrl: 'scheduling.html',
                 reviewUrl: 'reviews.html',
                 image: 'circle.jpg',
-                desc: 'The Circle Hostel is where surf culture meets community living. Located right on the beachfront in San Juan, it offers surf lessons, board rentals, and a vibrant hostel atmosphere that attracts young travelers from all over.',
+                desc: 'The Circle Hostel is where surf culture meets community living. Beachfront in San Juan with surf lessons, board rentals, and a vibrant atmosphere that attracts young travelers from all over.',
                 facts: ['Beachfront location', 'Surf lesson packages', 'Board & gear rental', 'Social rooftop deck', 'Budget-friendly dorms'],
                 rating: 5
             },
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 scheduleUrl: 'scheduling.html',
                 reviewUrl: 'reviews.html',
                 image: 'aureo.jpg',
-                desc: 'Aureo is the premium beach resort experience in La Union. With infinity pools overlooking the ocean, spa services, fine dining, and spacious rooms, it\'s the go-to for couples and families who want to indulge.',
+                desc: 'Aureo is the premium beach resort in La Union. Infinity pools overlooking the ocean, spa services, fine dining, and spacious rooms — the go-to for couples and families.',
                 facts: ['Infinity pool', 'Full-service spa', 'Fine dining restaurant', 'Ocean-view rooms', 'Wedding venue'],
                 rating: 5
             },
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 scheduleUrl: 'scheduling.html',
                 reviewUrl: 'reviews.html',
                 image: 'san juan.jpg',
-                desc: 'Built for surfers, by surfers — San Juan Surf Resort combines comfortable accommodations with world-class wave access. Daily surf reports, certified instructors, and equipment rental make it the ultimate surf hub.',
+                desc: 'Built for surfers, by surfers. Daily surf reports, certified instructors, and equipment rental make it the ultimate surf hub in La Union.',
                 facts: ['Steps from the break', 'Certified surf instructors', 'Daily surf forecasts', 'Longboard & shortboard rental', 'Video surf analysis'],
                 rating: 4
             },
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 scheduleUrl: 'scheduling.html',
                 reviewUrl: 'reviews.html',
                 image: 'thunderbird.jpg',
-                desc: 'Thunderbird is a full-scale resort destination featuring a casino, 18-hole golf course, multiple dining venues, and stunning ocean views. The most complete resort experience in La Union.',
+                desc: 'Thunderbird is a full-scale resort with a casino, 18-hole golf course, multiple dining venues, and stunning ocean views.',
                 facts: ['Casino & gaming', '18-hole golf course', 'Multiple restaurants', 'Conference facilities', 'Helipad access'],
                 rating: 4
             }
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 San Juan, La Union',
                 mapUrl: 'https://www.google.com/maps/search/El+Union+Coffee+San+Juan+La+Union+Philippines',
                 image: 'El Union Coffee.jpg',
-                desc: 'El Union is the cafe that put La Union on the specialty coffee map. Famous for its dirty horchata and cool artsy atmosphere, it draws coffee pilgrims from Manila and beyond.',
+                desc: 'El Union put La Union on the specialty coffee map. Famous for its dirty horchata and cool artsy atmosphere, it draws coffee pilgrims from Manila and beyond.',
                 facts: ['Famous dirty horchata', 'Single-origin pour overs', 'Surf culture aesthetic', 'Alfresco & indoor seating', 'Coffee & merch shop'],
                 rating: 5
             },
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 San Juan, La Union',
                 mapUrl: 'https://www.google.com/maps/search/Little+Yellow+House+San+Juan+La+Union+Philippines',
                 image: 'yellow.jpg',
-                desc: 'Little Yellow House became an Instagram sensation with unique creations — from ube lattes to buko pandan waffles. The yellow facade and fairy lights make it incredibly photogenic.',
+                desc: 'An Instagram sensation with unique creations — from ube lattes to buko pandan waffles. The yellow facade and fairy lights make it incredibly photogenic.',
                 facts: ['Instagram-famous spot', 'Creative dessert drinks', 'Ube & local flavor specials', 'Fairy-light ambiance', 'Cute outdoor seating'],
                 rating: 4
             },
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 San Juan, La Union',
                 mapUrl: 'https://www.google.com/maps/search/Great+Northwest+Cafe+San+Juan+La+Union+Philippines',
                 image: 'great.jpg',
-                desc: 'Great Northwest offers the most spectacular sunset view in all of La Union. Perched with an unobstructed view of the South China Sea, it\'s perfect for ending your day with a craft beer as the sky turns orange and pink.',
+                desc: 'The most spectacular sunset view in La Union. Perched with an unobstructed view of the South China Sea — perfect for craft beers as the sky turns orange and pink.',
                 facts: ['Unobstructed sea views', 'Prime sunset seating', 'Craft beers & cocktails', 'Weekend live music', 'Full food menu'],
                 rating: 5
             },
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: '📍 San Juan, La Union',
                 mapUrl: 'https://www.google.com/maps/search/Surftown+Cafe+San+Juan+La+Union+Philippines',
                 image: 'surf cafe.jpg',
-                desc: 'Surftown Cafe is the surfer\'s morning ritual spot. Open from early dawn, it serves hearty breakfast burritos, cold brew, and fresh acai bowls to fuel your session in the water.',
+                desc: 'The surfer\'s morning ritual spot. Open from early dawn with hearty breakfast burritos, cold brew, and fresh acai bowls to fuel your session.',
                 facts: ['Open from 6AM', 'Post-surf breakfast spot', 'Acai bowls & burritos', 'Cold brew on tap', 'Surf community hangout'],
                 rating: 4
             }
@@ -292,7 +292,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // Restore saved preference on load — no flash
     applyDarkMode(localStorage.getItem('elyu-dark') === 'true');
 
     if (darkToggleBtn) {
@@ -329,14 +328,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const href = this.getAttribute('href');
             if (!href || !href.startsWith('#')) return;
             e.preventDefault();
-            const targetId = href.replace('#', '');
-            const target   = document.getElementById(targetId);
+            const target = document.getElementById(href.replace('#', ''));
             if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            setActiveLink(targetId);
+            setActiveLink(href.replace('#', ''));
         });
     });
 
-    // passive:true lets mobile scroll without being blocked
     window.addEventListener('scroll', function () {
         let current  = '';
         const scroll = window.scrollY + 200;
@@ -381,19 +378,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    if (carouselPrev) {
-        carouselPrev.addEventListener('click', e => {
-            e.stopPropagation();
-            goToSlide(currentSlide > 0 ? currentSlide - 1 : slideTotal - 1);
-        });
-    }
-
-    if (carouselNext) {
-        carouselNext.addEventListener('click', e => {
-            e.stopPropagation();
-            goToSlide(currentSlide < slideTotal - 1 ? currentSlide + 1 : 0);
-        });
-    }
+    if (carouselPrev) carouselPrev.addEventListener('click', e => { e.stopPropagation(); goToSlide(currentSlide > 0 ? currentSlide - 1 : slideTotal - 1); });
+    if (carouselNext) carouselNext.addEventListener('click', e => { e.stopPropagation(); goToSlide(currentSlide < slideTotal - 1 ? currentSlide + 1 : 0); });
 
     function buildCarousel(images) {
         if (!carouselTrack || !carouselIndicators) return;
@@ -401,20 +387,17 @@ document.addEventListener('DOMContentLoaded', function () {
         carouselIndicators.innerHTML = '';
         slideTotal   = images.length;
         currentSlide = 0;
-
         images.forEach((src, i) => {
             const slide = document.createElement('div');
             slide.className = 'carousel-slide';
             slide.style.backgroundImage = `url('${src}')`;
             carouselTrack.appendChild(slide);
-
             const dot = document.createElement('button');
             dot.className = 'carousel-dot-sm' + (i === 0 ? ' active' : '');
             dot.setAttribute('aria-label', `Slide ${i + 1}`);
             dot.addEventListener('click', e => { e.stopPropagation(); goToSlide(i); });
             carouselIndicators.appendChild(dot);
         });
-
         carouselTrack.style.transform = 'translateX(0)';
         if (modalCarousel) modalCarousel.classList.add('active');
         if (modalBanner)   modalBanner.classList.remove('active');
@@ -433,49 +416,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function buildRestaurants(restaurants) {
         if (!modalRestaurants) return;
-        if (!restaurants || restaurants.length === 0) {
-            modalRestaurants.innerHTML = '';
-            return;
-        }
+        if (!restaurants || restaurants.length === 0) { modalRestaurants.innerHTML = ''; return; }
         const cards = restaurants.map(r => `
             <div class="restaurant-card">
                 <div class="restaurant-name">🍽️ ${r.name}</div>
                 <div class="restaurant-desc">${r.desc}</div>
                 <div class="restaurant-addr">${r.address}</div>
             </div>`).join('');
-        modalRestaurants.innerHTML = `
-            <div class="restaurants-label">🏪 Where to Find It</div>
-            <div class="restaurant-cards">${cards}</div>`;
+        modalRestaurants.innerHTML = `<div class="restaurants-label">🏪 Where to Find It</div><div class="restaurant-cards">${cards}</div>`;
     }
 
     function buildActions(type, data) {
         if (!modalActions) return;
         modalActions.innerHTML = '';
-
         if ((type === 'beaches' || type === 'cafes') && data.mapUrl) {
-            const btn = document.createElement('a');
-            btn.href      = data.mapUrl;
-            btn.target    = '_blank';
-            btn.rel       = 'noopener noreferrer';
-            btn.className = 'btn-ocean';
-            btn.innerHTML = '🗺️ View Location';
-            modalActions.appendChild(btn);
+            const a = document.createElement('a');
+            a.href = data.mapUrl; a.target = '_blank'; a.rel = 'noopener noreferrer';
+            a.className = 'btn-ocean'; a.innerHTML = '🗺️ View Location';
+            modalActions.appendChild(a);
         }
-
         if (type === 'stays') {
             if (data.scheduleUrl) {
-                const btn = document.createElement('button');
-                btn.className = 'btn-small';
-                btn.innerHTML = '📅 Schedule Now';
-                btn.addEventListener('click', () => { window.location.href = data.scheduleUrl; });
-                modalActions.appendChild(btn);
+                const b = document.createElement('button');
+                b.className = 'btn-small'; b.innerHTML = '📅 Schedule Now';
+                b.addEventListener('click', () => { window.location.href = data.scheduleUrl; });
+                modalActions.appendChild(b);
             }
             if (data.reviewUrl) {
-                const btn = document.createElement('button');
-                btn.className = 'btn-ocean';
-                btn.innerHTML = '⭐ Review';
-                btn.addEventListener('click', () => { window.location.href = data.reviewUrl; });
-                modalActions.appendChild(btn);
+                const b = document.createElement('button');
+                b.className = 'btn-ocean'; b.innerHTML = '⭐ Review';
+                b.addEventListener('click', () => { window.location.href = data.reviewUrl; });
+                modalActions.appendChild(b);
             }
         }
     }
@@ -483,36 +454,19 @@ document.addEventListener('DOMContentLoaded', function () {
     function openModal(type, index) {
         const data = INFO_DATA[type] && INFO_DATA[type][index];
         if (!data) return;
-
-        if (type === 'beaches' && data.images && data.images.length > 0) {
-            buildCarousel(data.images);
-        } else {
-            buildBanner(data.image);
-        }
-
+        type === 'beaches' && data.images ? buildCarousel(data.images) : buildBanner(data.image);
         if (modalCategory) modalCategory.textContent = data.category;
         if (modalTitle)    modalTitle.textContent    = data.title;
         if (modalLocation) modalLocation.textContent = data.location;
         if (modalDesc)     modalDesc.textContent     = data.desc;
-
         buildRestaurants(data.restaurants || null);
-
-        if (modalFacts) {
-            modalFacts.innerHTML = (data.facts || [])
-                .map(f => `<span class="fact-tag">${f}</span>`).join('');
-        }
-
+        if (modalFacts) modalFacts.innerHTML = (data.facts || []).map(f => `<span class="fact-tag">${f}</span>`).join('');
         if (modalRating) {
             const stars = '★'.repeat(data.rating) + '☆'.repeat(5 - data.rating);
             modalRating.innerHTML = `<span class="stars">${stars}</span> ${data.rating}.0 / 5.0 &nbsp;·&nbsp; Highly Recommended`;
         }
-
         buildActions(type, data);
-
-        if (modal) {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+        if (modal) { modal.classList.add('active'); document.body.style.overflow = 'hidden'; }
     }
 
     function closeModal() {
@@ -525,27 +479,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
     /* ============================================================
-       6. CLICK HANDLERS — THE MAIN MOBILE FIX
-
-       One listener on document covers every card and every gallery
-       list. No touchstart needed — click fires on mobile tap too.
-       touchstart + preventDefault was what broke clicks and scroll.
+       6. CARD CLICKS — works on mobile and desktop
     ============================================================ */
     document.addEventListener('click', function (e) {
+        const slide = e.target.closest('.slides li[data-info]');
+        if (slide) { openModal(slide.dataset.info, parseInt(slide.dataset.index)); return; }
 
-        // Beach slides
-        const beachSlide = e.target.closest('.slides li[data-info]');
-        if (beachSlide) {
-            openModal(beachSlide.dataset.info, parseInt(beachSlide.dataset.index));
-            return;
-        }
-
-        // Gallery cards — food, stays, cafes (all lists covered)
-        const galleryCard = e.target.closest('.gallery-card[data-info]');
-        if (galleryCard) {
-            openModal(galleryCard.dataset.info, parseInt(galleryCard.dataset.index));
-            return;
-        }
+        const card = e.target.closest('.gallery-card[data-info]');
+        if (card) { openModal(card.dataset.info, parseInt(card.dataset.index)); return; }
     });
 
 }); // end DOMContentLoaded
