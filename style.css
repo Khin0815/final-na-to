@@ -1593,3 +1593,46 @@ body.dark-mode .elyu-highlight {
     opacity: 0.8;
     transition: opacity 0.05s ease;
 }
+
+/* ============================================================
+   MOBILE TOUCH FIXES — add at the very bottom of LAUNION.css
+============================================================ */
+
+/* Make all child elements pass clicks through to the parent card */
+.gallery-card .img-holder,
+.gallery-card h3,
+.gallery-card .desc {
+    pointer-events: none;
+}
+
+/* Beach slides — children pass clicks to the li */
+.slides li .content,
+.slides li img {
+    pointer-events: none;
+}
+
+/* Info trigger always visible on mobile (no hover on touch) */
+@media (hover: none) {
+    .info-trigger {
+        opacity: 1 !important;
+    }
+    .slides li .content {
+        opacity: 1 !important;
+        background: linear-gradient(transparent, rgba(11,59,79,0.85));
+    }
+    /* Remove hover transform on touch devices (causes layout bugs) */
+    .gallery-card:hover {
+        transform: none;
+    }
+    .slides li:hover {
+        flex: 1;
+    }
+}
+
+/* Tap highlight removed for cleaner feel */
+.gallery-card,
+.slides li,
+.info-trigger {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
